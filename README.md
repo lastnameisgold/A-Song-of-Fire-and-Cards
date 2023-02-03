@@ -1,4 +1,4 @@
-![alt text](https://giphy.com/gifs/gameofthrones-l41m2M6Gwq2ogoyju)
+![alt text](https://media.giphy.com/media/l41m2M6Gwq2ogoyju/giphy.gif)
 
 # A-Song-of-Fire-and-Cards
 A memory match game based on the famous HBO series Game of Thrones.
