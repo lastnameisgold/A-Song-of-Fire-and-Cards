@@ -17,3 +17,5 @@ A memory match game based on the famous HBO series Game of Thrones.
 - Cards will have a flip animation on click
 - The light/dark theme will be fully functional
 - An array of quotes will be randomly displayed at the end of game
+- The player can customize the cards by choosing the house of choice, randomize the card themes, or use the default theme.
+- The game will be responsive, it should fit on all screen sizes (i.e. desktop, tablet, mobile viewports)
