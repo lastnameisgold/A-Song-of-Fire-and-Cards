@@ -3,7 +3,7 @@
 # A Song of Fire and Cards
 A memory match game based on HBO's hit series Game of Thrones.
 
-![Wireframes for A Song of Fire and Cards]([https://media.giphy.com/media/l41m2M6Gwq2ogoyju/giphy.gif](https://imgur.com/a/cyALzBw))
+![Wireframes for A Song of Fire and Cards](https://imgur.com/a/cyALzBw)
 
 # Key Features
 - The game will randomize 12 images from the character of GoT
