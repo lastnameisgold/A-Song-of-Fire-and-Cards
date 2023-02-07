@@ -11,6 +11,48 @@ const cardTheme = document.querySelector('#select-theme')
 const systemTheme = document.querySelector('#toggle-system-theme')
 const gameCard = document.querySelector('.got-card')
 
+/////////////////////////////////////
+// Create a card with child elements and place it into html > body > main
+
+const main = document.querySelector('main');
+
+// Card
+const gotCard = document.createElement('div')
+gotCard.classList.add('got-card')
+
+// Character background image
+const backgroundImageDiv = document.createElement('div')
+backgroundImageDiv.classList.add('got-card')
+
+// Content container
+const contentContainerDiv = document.createElement('div')
+contentContainerDiv.classList.add('content-container')
+
+// Character name
+let name = document.createElement('h3')
+name.classList.add('character-name')
+name.textContent = "";
+contentContainerDiv.appendChild(name);
+
+// Character title
+let title = document.createElement('h5')
+title.classList.add('character-title')
+title.textContent = "";
+contentContainerDiv.appendChild(title);
+
+// Character family
+let family = document.createElement('p')
+family.classList.add('character-family')
+family.textContent = "";
+contentContainerDiv.appendChild(family);
+
+// Append 
+gotCard.appendChild(backgroundImageDiv)
+backgroundImageDiv.appendChild(contentContainerDiv)
+main.appendChild(gotCard)
+
+////////////////////////////////////
+
 let gotCharacters = []
 let randomCharacter = []
 
@@ -43,15 +85,8 @@ async function getData(e) {
         let randomCharacter = gotCharacters[randomIndex]
         console.log(randomIndex)
 
-        // Character Image ✅
-        // Img src
-        // let characterImage = document.querySelector('.character-image')
-        // characterImage.src = res[randomIndex].imageUrl
-        // console.log(characterImage)
-
-        // Ask Brittany/Jeremy about this 🤔
-        // Background Image Div
-        let characterImage = document.querySelector('.image-background')
+        // Character Background Image Div ✅
+        let characterImage = document.querySelector('.background-image')
         characterImage.style.backgroundImage = `url('${res[randomIndex].imageUrl}')`
         console.log(characterImage)
   

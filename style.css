@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     justify-content: top;
     font-family: 'Cinzel', serif;
-    /* background-color: lightgrey; */
+    background-color: #f8f8f8;
 }
 
 h1 {
@@ -108,13 +108,13 @@ main {
 .got-card {
     height: 22rem;
     width: 16rem;
-    background-image: url('https://w0.peakpx.com/wallpaper/299/695/HD-wallpaper-the-four-houses-baratheon-game-got-lannister-of-stark-targaryan-thrones.jpg');
+    /* background-image: url('https://w0.peakpx.com/wallpaper/299/695/HD-wallpaper-the-four-houses-baratheon-game-got-lannister-of-stark-targaryan-thrones.jpg'); */
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
-    box-shadow: 0px 10px 20px -1px rgba(50, 50, 93, 0.25);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
@@ -122,7 +122,7 @@ main {
     height: auto;
 }
 
-.image-background {
+.background-image {
     height: 100%;
     width: 100%;
     background-position: center top;
@@ -134,7 +134,7 @@ main {
     align-items: left;
 }
 
-.container-content {
+.content-container {
     height: 100%;
     padding: 1rem;
     color: white;
@@ -144,9 +144,3 @@ main {
     justify-content: end;
     border-radius: inherit;
 }
-
-/* .content-container {
-    height: 100%;
-    padding: 1rem 1rem;
-    background-color: pink;
-} */
