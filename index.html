@@ -22,41 +22,20 @@
         <!-- Buttons -->
         <div id="buttons-container">
             <!-- Card options dropdown -->
-            <div id="select-container">
-                <label for="card-options">Cards:</label>
-                <select name="card options" id="card-options">
-                    <option value="ten-cards">20</option>
-                    <option value="twenty-cards">30</option>
-                    <option value="thirty-cards">40</option>
-                    <option value="forty-cards">60</option>
-                </select>
-            </div>
+            <select name="card options" id="card-options">
+                <option value="ten-cards">20 cards</option>
+                <option value="twenty-cards">30 cards</option>
+                <option value="thirty-cards">40 cards</option>
+            </select>
             <!-- New game button -->
             <button id="new-game-btn">New game</button>
             <!-- Light/dark mode button -->
             <button id="toggle-system-theme"><span class="material-symbols-rounded icon-size">dark_mode</span></button>
         </div>
     </header>
-
-    <main>
-        <div class="got-card" id="card-1">
-            <!-- Option 1 - Image top and content bottom -->
-            <!-- <img src="" alt="" class="character-image">
-            <div class="content-container">
-                <h3 class="character-name"></h3>
-                <h5 class="character-title"></h5>
-                <p class="character-family"></p>
-            </div> -->
-
-            <!-- Option 2 - Image as the background and content on top -->
-            <div class="background-image">
-                <div class="content-container">
-                    <h3 class="character-name"></h3>
-                    <h5 class="character-title"></h5>
-                    <p class="character-family"></p>
-                </div>
-            </div>
-        </div>
+    
+    <main id="game">
+        <!-- Cards will go here -->
     </main>
     
     <!-- JS goes here -->

@@ -27,16 +27,13 @@ header {
 
 #logo-container {
     margin-right: 2rem;
-    /* background-color: pink; */
 }
 
 #buttons-container {
     display: flex;
     align-items: end;
-    /* justify-content: end; */
     grid-gap: 1rem;
     flex-wrap: no-wrap;
-    /* background-color: pink; */
 }
 
 select {
@@ -52,8 +49,6 @@ select {
     font-size: 1rem;
     font-weight: 400;
     cursor: pointer;
-    /* background-color: pink; */
-    /* text-align: center; */
 }
 
 #select-container {
@@ -98,28 +93,50 @@ span.icon-size {
 main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     grid-gap: 1.5rem;
-    row-gap: 1.5rem;
+    justify-content: center;
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
-.got-card {
+.card {
     height: 22rem;
     width: 16rem;
-    /* background-image: url('https://w0.peakpx.com/wallpaper/299/695/HD-wallpaper-the-four-houses-baratheon-game-got-lannister-of-stark-targaryan-thrones.jpg'); */
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: ease-in-out 300ms;
+    /* box-shadow: 0px 3px 10px black; */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.back {
+    background-image: url('https://www.xtrafondos.com/wallpapers/vertical/jon-snow-con-dragon-de-juego-de-tronos-4921.jpg');
+    /* background-image: url('https://www.xtrafondos.com/wallpapers/vertical/tyrion-y-drogon-de-juego-de-tronos-2070.jpg'); */
+    /* background-image: url('https://www.xtrafondos.com/wallpapers/vertical/juego-de-tronos-personajes-en-trono-de-hierro-3190.jpg'); */
+    border-radius: inherit;
+    background-size: cover;
+    background-position: center;
+}
+
+.front, .back {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.front {
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
-    border-radius: 1rem;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.character-image {
-    height: auto;
 }
 
 .background-image {
@@ -130,8 +147,10 @@ main {
     border-radius: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: left;
+}
+
+.rotated {
+    transform: rotateY(180deg);
 }
 
 .content-container {
