@@ -1,9 +1,11 @@
 /////////////////////////
 // Variables
 
-const newGame = document.querySelector('.new-game-btn');
+const newGameBtn = document.querySelector('.new-game-btn');
+const dismissBtn = document.querySelector('.dismiss-btn');
 const modalContainer =document.querySelector('.modal-container');
-
+const modal =document.querySelector('.modal');
+const cardDropShadow = document.querySelector('.card');
 const systemTheme = document.querySelector('#toggle-system-theme');
 
 
@@ -68,14 +70,14 @@ const clickCard = (event) => {
     isPaused = true;
 
     rotateElements([front, back]);
-
+    
     if(!firstPick) {
         firstPick = gotCard;
         isPaused = false;
     }else {
-        const secondgotcharacter = gotCard.dataset.gotcharacter;
-        const firstgotcharacter = firstPick.dataset.gotcharacter;
-        if(firstgotcharacter != secondgotcharacter) {
+        const secondGotCharacter = gotCard.dataset.gotcharacter;
+        const firstGotCharacter = firstPick.dataset.gotcharacter;
+        if(firstGotCharacter != secondGotCharacter) {
             const [firstBack, firstFront] = getFrontAndBack(firstPick);
             setTimeout(() => {
                 rotateElements([front, back, firstBack, firstFront]);
@@ -88,7 +90,20 @@ const clickCard = (event) => {
                 // Show modal when the player wins
                 setTimeout(() => { 
                     modalContainer.classList.add('show')
+                }, 800);
+                setTimeout(() => {
+                    modal.classList.add('show')
                 }, 1000);
+                // Click dismiss button to close modal
+                dismissBtn.addEventListener('click', () => {
+                    modalContainer.classList.remove('show')
+                    modal.classList.remove('show')
+                });
+                // Click outside of modal to close modal
+                modalContainer.addEventListener('click', () => {
+                    modalContainer.classList.remove('show')
+                    modal.classList.remove('show')
+                });
             }
             firstPick = null;
             isPaused = false;
@@ -109,11 +124,6 @@ const getFrontAndBack = (card) => {
     return [front, back];
 }
 
-// Hide dropshadow
-const toggleDropShadow = () => {
-
-}
-
 // Reset game
 const resetGame = () => {
     const character = loadCharacters();
@@ -131,7 +141,7 @@ const resetGame = () => {
 resetGame();
 
 // Click button to start a new game
-newGame.addEventListener('click', () => {
+newGameBtn.addEventListener('click', () => {
     resetGame();
 });
 
@@ -147,11 +157,9 @@ newGame.addEventListener('click', () => {
 // When a user clicks on a card, the card should flip to reveal the front of the card ✅
 // The user can click on another card to flip it and see if it's a match ✅
 // If it's a match, both cards remain flipped. If it's not a match, both card will go back to face down ✅
-// A sound will play when cards are clicked
-// A sound will play when both cards match
-// When the user clicks on new game, the cars should be randomize to start a new game
+// When the user clicks on new game, the cars should be randomize to start a new game ✅
 // Any flipped cards should go back to facing down when a new game is restarted ✅
-// When the user wins a modal should appear telling the player they won!
+// When the user wins a modal should appear telling the player they won! ✅
 
 // When you first come in, there are no cards on the gameboard
 // Text input of numbers. Create and map a number of cards/divs whatever the input.value is.
@@ -161,3 +169,9 @@ newGame.addEventListener('click', () => {
 // Post MVP features
 // let result
 // const time
+// A sound will play when cards are clicked
+// A sound will play when both cards match
+
+
+// Instructions for how to play the game 🤔
+// Like a modal screen to display 
