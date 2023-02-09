@@ -22,18 +22,29 @@
         <!-- Buttons -->
         <div id="buttons-container">
             <!-- Card options dropdown -->
-            <select name="card options" id="card-options">
-                <option value="ten-cards">20 cards</option>
-                <option value="twenty-cards">30 cards</option>
-                <option value="thirty-cards">40 cards</option>
-            </select>
+            <!-- <select name="card options" id="card-options">
+                <option value="10">20 cards</option>
+                <option value="20">30 cards</option>
+                <option value="30">40 cards</option>
+            </select> -->
             <!-- New game button -->
-            <button id="new-game-btn">New game</button>
+            <button class="new-game-btn">New game</button>
             <!-- Light/dark mode button -->
             <button id="toggle-system-theme"><span class="material-symbols-rounded icon-size">dark_mode</span></button>
         </div>
     </header>
-    
+
+    <div class="modal-container">
+        <div id="modal">
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/TZE9gVF1QbA?autoplay=1" title="Opening Credits | Game of Thrones | Season 8 (HBO)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h2>You have won!</h2>
+            <p>
+            Hear ye, hear ye! The song of victory has been sung and the fire of triumph has been lit. The Seven Kingdoms shall sing of your triumph for generations to come. All hail the new Song of Fire and Cards Champion!"
+            </p>
+            <button class="new-game-btn">New game</button>
+        </div>
+    </div>
+
     <main id="game">
         <!-- Cards will go here -->
     </main>

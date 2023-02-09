@@ -1,14 +1,19 @@
 /////////////////////////
 // Variables
 
-const newGame = document.querySelector('#new-game-btn');
+const newGame = document.querySelector('.new-game-btn');
+const modalContainer =document.querySelector('.modal-container');
+
 const systemTheme = document.querySelector('#toggle-system-theme');
-const gameCard = document.querySelector('.got-card');
+
 
 /////////////////////////
 // Functions
 
+// Game of Thrones API
 const thronesAPIUrl = 'https://thronesapi.com/api/v2/Characters/'
+
+// Main container with id of game
 const game = document.getElementById('game')
 
 let isPaused = false;
@@ -16,7 +21,7 @@ let firstPick = undefined;
 let cardsMatch = undefined;
 
 const loadCharacters = async () => {
-    // Create a random set of 20 cards
+    // Create a random set of cards
     const randomIds = new Set();
     while(randomIds.size < 10) {
         const randomNumber = Math.floor(Math.random() * 53);
@@ -36,7 +41,7 @@ const displayCharacter = (character) => {
     // Card gets placed into the HTML
     const gameHTML = character.map(character => {
         return `
-            <div class="card" onclick="clickCard(event)" data-gotname="${character.fullName}">
+            <div class="card" onclick="clickCard(event)" data-gotcharacter="${character.fullName}">
                 <div class="back"></div>
                 <div class="front rotated" style="background-image: url('${character.imageUrl}')">
                     <div class="background-image">
@@ -68,9 +73,9 @@ const clickCard = (event) => {
         firstPick = gotCard;
         isPaused = false;
     }else {
-        const secondGotName = gotCard.dataset.gotname;
-        const firstGotName = firstPick.dataset.gotname;
-        if(firstGotName != secondGotName) {
+        const secondgotcharacter = gotCard.dataset.gotcharacter;
+        const firstgotcharacter = firstPick.dataset.gotcharacter;
+        if(firstgotcharacter != secondgotcharacter) {
             const [firstBack, firstFront] = getFrontAndBack(firstPick);
             setTimeout(() => {
                 rotateElements([front, back, firstBack, firstFront]);
@@ -79,8 +84,11 @@ const clickCard = (event) => {
             }, 1000)
         }else {
             cardsMatch++;
-            if(cardsMatch === 20) {
-                console.log("Winner!");
+            if(cardsMatch === 10) {
+                // Show modal when the player wins
+                setTimeout(() => { 
+                    modalContainer.classList.add('show')
+                }, 1000);
             }
             firstPick = null;
             isPaused = false;
@@ -94,10 +102,16 @@ const rotateElements = (elements) => {
     elements.forEach(element => element.classList.toggle('rotated'));
 }
 
+
 const getFrontAndBack = (card) => {
     const front = card.querySelector(".front");
     const back = card.querySelector(".back");
     return [front, back];
+}
+
+// Hide dropshadow
+const toggleDropShadow = () => {
+
 }
 
 // Reset game
@@ -114,17 +128,18 @@ const resetGame = () => {
         isPaused = false;
     }, 200);
 }
-
 resetGame();
 
 // Click button to start a new game
-newGame.addEventListener('click', resetGame);
+newGame.addEventListener('click', () => {
+    resetGame();
+});
 
 /////////////////////////
 // Sources
 // 1. GoT Character API - https://thronesapi.com/
 // 2. GoT Font - https://www.onlinewebfonts.com/download/97c4b25dc74e0ab045154e75a8fdd69d
-// 3.
+// 3. Backgrounds - 
 
 // Pseudo code
 // When the game starts the cards positions should be randomized ✅
