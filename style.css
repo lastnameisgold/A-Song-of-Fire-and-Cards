@@ -10,10 +10,16 @@ body {
     justify-content: top center;
     font-family: 'Cinzel', serif;
     background-color: #f8f8f8;
+    color: #000000;
     /* background-image: url('https://r4.wallpaperflare.com/wallpaper/626/491/591/game-of-thrones-fantasy-art-artwork-the-wall-wallpaper-49f0884dc18abd4b56b7181ff0c1e6bd.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.dark-mode {
+    background-color: #000000;
+    color: white;
 }
 
 h1 {
@@ -69,13 +75,32 @@ select {
     cursor: pointer;
 }
 
-#toggle-system-theme{
+.dark-mode-btn {
     display: flex;
     align-content: center;
     padding: 1rem;
     border-radius: 50%;
     border: none;
     cursor: pointer;
+}
+
+.new-game-btn.dark-mode {
+    width: fit-content;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: black;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.dismiss-btn.dark-mode {
+    background-color: white;
+    color: black
 }
 
 span.icon-size {
@@ -194,6 +219,7 @@ main {
     height: fit-content;
     width: 50vw;
     background-color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -204,6 +230,11 @@ main {
     border-radius: 1rem;
     transform: translateY(60rem);
     transition: ease-in-out 400ms;
+}
+
+.modal.dark-mode {
+    background-color: black;
+    color: white;
 }
 
 .modal.show {

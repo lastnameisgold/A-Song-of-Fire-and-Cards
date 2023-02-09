@@ -6,8 +6,7 @@ const dismissBtn = document.querySelector('.dismiss-btn');
 const modalContainer =document.querySelector('.modal-container');
 const modal =document.querySelector('.modal');
 const cardDropShadow = document.querySelector('.card');
-const systemTheme = document.querySelector('#toggle-system-theme');
-
+const darkModeBtn = document.querySelector('.dark-mode-btn');
 
 /////////////////////////
 // Functions
@@ -25,7 +24,7 @@ let cardsMatch = undefined;
 const loadCharacters = async () => {
     // Create a random set of cards
     const randomIds = new Set();
-    while(randomIds.size < 10) {
+    while(randomIds.size < 2) {
         const randomNumber = Math.floor(Math.random() * 53);
         randomIds.add(randomNumber);
     }
@@ -86,7 +85,7 @@ const clickCard = (event) => {
             }, 1000)
         }else {
             cardsMatch++;
-            if(cardsMatch === 10) {
+            if(cardsMatch === 2) {
                 // Show modal when the player wins
                 setTimeout(() => { 
                     modalContainer.classList.add('show')
@@ -123,6 +122,19 @@ const getFrontAndBack = (card) => {
     const back = card.querySelector(".back");
     return [front, back];
 }
+
+// Toggle Dark Mode
+function toggleDarkMode() {
+    let darkBody = document.body;
+    darkBody.classList.toggle("dark-mode")
+    newGameBtn.classList.toggle("dark-mode")
+    dismissBtn.classList.toggle("dark-mode")
+    modal.classList.toggle("dark-mode")
+}
+
+darkModeBtn.addEventListener('click', () => {
+    toggleDarkMode();
+});
 
 // Reset game
 const resetGame = () => {
