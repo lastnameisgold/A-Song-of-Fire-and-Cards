@@ -9,22 +9,23 @@ body {
     flex-direction: column;
     justify-content: top center;
     font-family: 'Cinzel', serif;
-    background-color: #f8f8f8;
-    color: #000000;
+    background-color: #fffbff;
+    color: #1e1b16;
     /* background-image: url('https://r4.wallpaperflare.com/wallpaper/626/491/591/game-of-thrones-fantasy-art-artwork-the-wall-wallpaper-49f0884dc18abd4b56b7181ff0c1e6bd.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: ease-in-out 300ms;
 }
 
 .dark-mode {
-    background-color: #000000;
-    color: white;
+    background-color: #1e1b16;
+    color: #e9e1d9;
 }
 
 h1 {
     font-family: 'Game of Thrones', cursive;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 header {
@@ -65,31 +66,23 @@ select {
     width: fit-content;
     font-family: 'Cinzel', serif;
     font-weight: 600;
-    color: white;
-    background-color: black;
+    color: #ffffff;
+    background-color: #7a5900;
     padding: 1rem 1.5rem;
     border-radius: 2rem;
     border: none;
     font-size: 1rem;
     font-weight: 400;
     cursor: pointer;
-}
-
-.dark-mode-btn {
-    display: flex;
-    align-content: center;
-    padding: 1rem;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
+    transition: ease-in-out 300ms;
 }
 
 .new-game-btn.dark-mode {
     width: fit-content;
     font-family: 'Cinzel', serif;
     font-weight: 600;
-    color: black;
-    background-color: white;
+    color: #f4be48;
+    background-color: #402d00;
     padding: 1rem 1.5rem;
     border-radius: 2rem;
     border: none;
@@ -99,11 +92,28 @@ select {
 }
 
 .dismiss-btn.dark-mode {
-    background-color: white;
-    color: black
+    background-color: #402d00;
+    color: #f4be48;
 }
 
-span.icon-size {
+.dark-mode-btn {
+    display: flex;
+    align-content: center;
+    background-color: #ede1cf;
+    color: #4d4639;
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: ease-in-out 300ms;
+}
+
+.dark-mode-btn.dark-mode {
+    background-color: #4d4639;
+    color: #d1c5b4;
+}
+
+span.dark-mode-icon {
     font-size: 1rem;
 }
 
@@ -218,8 +228,8 @@ main {
 .modal {
     height: fit-content;
     width: 50vw;
-    background-color: white;
-    color: black;
+    background-color: #fffbff;
+    color: #1e1b16;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,8 +243,8 @@ main {
 }
 
 .modal.dark-mode {
-    background-color: black;
-    color: white;
+    background-color: #1e1b16;
+    color: #e9e1d9;
 }
 
 .modal.show {

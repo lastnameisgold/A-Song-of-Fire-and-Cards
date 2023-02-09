@@ -1,12 +1,14 @@
 /////////////////////////
 // Variables
 
+const body = document.querySelector('body');
 const newGameBtn = document.querySelector('.new-game-btn');
 const dismissBtn = document.querySelector('.dismiss-btn');
+const darkModeBtn = document.querySelector('.dark-mode-btn');
+const darkModeIcon = document.querySelector('.dark-mode-icon')
 const modalContainer =document.querySelector('.modal-container');
 const modal =document.querySelector('.modal');
 const cardDropShadow = document.querySelector('.card');
-const darkModeBtn = document.querySelector('.dark-mode-btn');
 
 /////////////////////////
 // Functions
@@ -125,11 +127,16 @@ const getFrontAndBack = (card) => {
 
 // Toggle Dark Mode
 function toggleDarkMode() {
-    let darkBody = document.body;
-    darkBody.classList.toggle("dark-mode")
-    newGameBtn.classList.toggle("dark-mode")
-    dismissBtn.classList.toggle("dark-mode")
-    modal.classList.toggle("dark-mode")
+    body.classList.toggle("dark-mode");
+    newGameBtn.classList.toggle("dark-mode");
+    dismissBtn.classList.toggle("dark-mode");
+    modal.classList.toggle("dark-mode");
+    darkModeBtn.classList.toggle("dark-mode");
+    if (darkModeIcon.innerText === "dark_mode") {
+        darkModeIcon.innerText = "light_mode";
+    } else {
+        darkModeIcon.innerText = "dark_mode";
+    }
 }
 
 darkModeBtn.addEventListener('click', () => {
