@@ -4,11 +4,13 @@
 const body = document.querySelector('body');
 const newGameBtn = document.querySelector('.new-game-btn');
 const dismissBtn = document.querySelector('.dismiss-btn');
+const startGameBtn = document.querySelector('.start-game-btn')
 const darkModeBtn = document.querySelector('.dark-mode-btn');
 const darkModeIcon = document.querySelector('.dark-mode-icon')
 const modalContainer =document.querySelector('.modal-container');
-const modal =document.querySelector('.modal');
-const cardDropShadow = document.querySelector('.card');
+const modal = document.querySelector('.modal');
+const gameplayModalContainer =document.querySelector('.gameplay-modal-container');
+const gameplayModal = document.querySelector('.gameplay-modal');
 
 /////////////////////////
 // Functions
@@ -26,7 +28,7 @@ let cardsMatch = undefined;
 const loadCharacters = async () => {
     // Create a random set of cards
     const randomIds = new Set();
-    while(randomIds.size < 2) {
+    while(randomIds.size < 10) {
         const randomNumber = Math.floor(Math.random() * 53);
         randomIds.add(randomNumber);
     }
@@ -37,8 +39,8 @@ const loadCharacters = async () => {
     return await Promise.all(responses.map(res => res.json()));
 }
 
-// Creates 2 of the same character
 const displayCharacter = (character) => {
+    // Creates 2 of the same character
     character.sort( _ => Math.random() - 0.5);
     // Generates a card based on the values pulled from the API
     // Card gets placed into the HTML
@@ -59,7 +61,28 @@ const displayCharacter = (character) => {
         `
     }).join('');
     game.innerHTML = gameHTML;
+    // changeBackground();
 }
+
+/*
+const backgroundOptions = [
+    'https://www.xtrafondos.com/wallpapers/vertical/jon-snow-con-dragon-de-juego-de-tronos-4921.jpg',
+    'https://www.xtrafondos.com/wallpapers/vertical/tyrion-y-drogon-de-juego-de-tronos-2070.jpg',
+    'https://www.xtrafondos.com/wallpapers/vertical/juego-de-tronos-personajes-en-trono-de-hierro-3190.jpg'
+]
+
+
+const changeBackground = () => {
+    const changeBg = document.querySelectorAll('.back');
+    for (let i = 0 ; i < changeBg.length ; i++) {
+        const imageUrl = backgroundOptions[i % backgroundOptions.length];
+        changeBg[i].style.backgroundImage = `url(${imageUrl})`;        
+    }
+}
+console.log(changeBackground);
+
+newGameBtn.addEventListener('click', changeBackground);
+*/
 
 // Click to flip card
 const clickCard = (event) => {
@@ -87,7 +110,7 @@ const clickCard = (event) => {
             }, 1000)
         }else {
             cardsMatch++;
-            if(cardsMatch === 2) {
+            if(cardsMatch === 10) {
                 // Show modal when the player wins
                 setTimeout(() => { 
                     modalContainer.classList.add('show')
@@ -125,7 +148,7 @@ const getFrontAndBack = (card) => {
     return [front, back];
 }
 
-// Toggle Dark Mode
+// Toggle dark mode for different parts of the UI
 function toggleDarkMode() {
     body.classList.toggle("dark-mode");
     newGameBtn.classList.toggle("dark-mode");
@@ -138,10 +161,6 @@ function toggleDarkMode() {
         darkModeIcon.innerText = "dark_mode";
     }
 }
-
-darkModeBtn.addEventListener('click', () => {
-    toggleDarkMode();
-});
 
 // Reset game
 const resetGame = () => {
@@ -159,16 +178,31 @@ const resetGame = () => {
 }
 resetGame();
 
+
+/////////////////////////
+// Event Listeners
+
 // Click button to start a new game
 newGameBtn.addEventListener('click', () => {
     resetGame();
+});
+
+// Dark mode button
+darkModeBtn.addEventListener('click', () => {
+    toggleDarkMode();
+});
+
+startGameBtn.addEventListener('click', () => {
+    gameplayModalContainer.classList.add('hide')
+    gameplayModal.classList.add('hide')
 });
 
 /////////////////////////
 // Sources
 // 1. GoT Character API - https://thronesapi.com/
 // 2. GoT Font - https://www.onlinewebfonts.com/download/97c4b25dc74e0ab045154e75a8fdd69d
-// 3. Backgrounds - 
+// 3. Building a JavaScript Memory Match Game - https://www.jamesqquick.com/blog/build-a-javascript-memory-match-game/
+// 4. Create a Modal (Popup) with HTML/CSS and JavaScript - https://youtu.be/XH5OW46yO8I
 
 // Pseudo code
 // When the game starts the cards positions should be randomized ✅
@@ -192,5 +226,5 @@ newGameBtn.addEventListener('click', () => {
 // A sound will play when both cards match
 
 
-// Instructions for how to play the game 🤔
+// Instructions for how to play the game
 // Like a modal screen to display 

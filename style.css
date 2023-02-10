@@ -12,9 +12,9 @@ body {
     background-color: #fffbff;
     color: #1e1b16;
     /* background-image: url('https://r4.wallpaperflare.com/wallpaper/626/491/591/game-of-thrones-fantasy-art-artwork-the-wall-wallpaper-49f0884dc18abd4b56b7181ff0c1e6bd.jpg'); */
-    background-size: cover;
+    /* background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     transition: ease-in-out 300ms;
 }
 
@@ -62,7 +62,7 @@ select {
     cursor: pointer;
 }
 
-.new-game-btn, .dismiss-btn {
+.new-game-btn, .dismiss-btn, .start-game-btn {
     width: fit-content;
     font-family: 'Cinzel', serif;
     font-weight: 600;
@@ -153,10 +153,7 @@ main {
 }
 
 .back {
-    /* background-image: url('https://static.hbo.com/game-of-thrones-1-1920x1080.jpg'); */
-    background-image: url('https://www.xtrafondos.com/wallpapers/vertical/jon-snow-con-dragon-de-juego-de-tronos-4921.jpg');
-    /* background-image: url('https://www.xtrafondos.com/wallpapers/vertical/tyrion-y-drogon-de-juego-de-tronos-2070.jpg'); */
-    /* background-image: url('https://www.xtrafondos.com/wallpapers/vertical/juego-de-tronos-personajes-en-trono-de-hierro-3190.jpg'); */
+    background-image: url('https://static.hbo.com/game-of-thrones-1-1920x1080.jpg');
     border-radius: inherit;
     background-size: cover;
     background-position: center;
@@ -204,6 +201,51 @@ main {
     border-radius: inherit;
 }
 
+/* Gameplay modal */
+.gameplay-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 1;
+    pointer-events: auto;
+    transition: ease-in-out 400ms;
+}
+
+.gameplay-modal-container.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gameplay-modal {
+    height: fit-content;
+    width: 40vw;
+    background-color: #fffbff;
+    color: #1e1b16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-gap: 1rem;
+    align-items: center;
+    padding: 2.5rem;
+    text-align: left;
+    border-radius: 1rem;
+    transform: translateY(0rem);
+    transition: ease-in-out 400ms;
+}
+
+.gameplay-modal.hide {
+    transform: translateY(60rem);
+    pointer-events: none;
+}
+
+/* Winner Modal*/
 .modal-container {
     position: fixed;
     top: 0;
