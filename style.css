@@ -11,10 +11,6 @@ body {
     font-family: 'Cinzel', serif;
     background-color: #fffbff;
     color: #1e1b16;
-    /* background-image: url('https://r4.wallpaperflare.com/wallpaper/626/491/591/game-of-thrones-fantasy-art-artwork-the-wall-wallpaper-49f0884dc18abd4b56b7181ff0c1e6bd.jpg'); */
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
     transition: ease-in-out 300ms;
 }
 
@@ -206,7 +202,11 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, .5);
+    /* background-color: rgba(0, 0, 0, .5); */
+    background-image: url('https://r4.wallpaperflare.com/wallpaper/626/491/591/game-of-thrones-fantasy-art-artwork-the-wall-wallpaper-49f0884dc18abd4b56b7181ff0c1e6bd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -225,16 +225,17 @@ main {
 
 .gameplay-modal {
     height: fit-content;
-    width: 40vw;
+    width: 45vw;
     background-color: #fffbff;
     color: #1e1b16;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
     grid-gap: 1rem;
     align-items: center;
     padding: 2.5rem;
-    text-align: left;
+    text-align: center;
     border-radius: 1rem;
     transform: translateY(0rem);
     transition: ease-in-out 400ms;
@@ -243,6 +244,8 @@ main {
 .gameplay-modal.hide {
     transform: translateY(60rem);
     pointer-events: none;
+    box-shadow: none;
+
 }
 
 /* Winner Modal*/

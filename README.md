@@ -6,7 +6,7 @@ A memory match game based on HBO's hit series Game of Thrones.
 ![Wireframes for A Song of Fire and Cards](https://i.imgur.com/ZFMO7lo.png)
 
 # Key Features
-- The game will randomize 12 images from the GoT characters using the Game of Thrones API (https://thronesapi.com/)
+- The game will randomize 10 images from the GoT characters using the Game of Thrones API (https://thronesapi.com/)
 - The user can toggle light/dark mode or the game should detect the user's system settings to change theme
 - At the end of the game a quote from game of thrones
 
